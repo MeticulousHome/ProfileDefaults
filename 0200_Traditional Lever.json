@@ -24,14 +24,19 @@
       "key": "preinfusion_1",
       "type": "flow",
       "dynamics": {
-        "points": [[0, 12]],
+        "points": [
+          [
+            0,
+            12
+          ]
+        ],
         "over": "time",
         "interpolation": "linear"
       },
       "exit_triggers": [
         {
           "type": "pressure",
-          "value": "$pressure_1",
+          "value": 1,
           "relative": false,
           "comparison": ">="
         }
@@ -43,7 +48,12 @@
       "key": "blooming_1",
       "type": "pressure",
       "dynamics": {
-        "points": [[0, 1]],
+        "points": [
+          [
+            0,
+            1
+          ]
+        ],
         "over": "time",
         "interpolation": "curve"
       },
@@ -63,9 +73,18 @@
       "type": "pressure",
       "dynamics": {
         "points": [
-          [0, 1.1],
-          [3.5, "$pressure_1"],
-          [29, 4.3]
+          [
+            0,
+            1.1
+          ],
+          [
+            3.5,
+            "$pressure_1"
+          ],
+          [
+            29,
+            4.3
+          ]
         ],
         "over": "time",
         "interpolation": "curve"
