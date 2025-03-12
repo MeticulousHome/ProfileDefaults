@@ -56,8 +56,7 @@
       "type": "pressure",
       "dynamics": {
         "points": [
-          [0, 0],
-          [10, "$pressure_1"],
+          [0, "$pressure_1"],
           [20, "$pressure_1"]
         ],
         "over": "time",
