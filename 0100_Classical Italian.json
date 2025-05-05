@@ -24,7 +24,7 @@
       "key": "preinfusion_1",
       "type": "flow",
       "dynamics": {
-        "points": [[0, 4]],
+        "points": [[0, 8]],
         "over": "time",
         "interpolation": "linear"
       },
