@@ -6,7 +6,7 @@
   "previous_authors": [],
   "display": {
     "shortDescription": "Slow preinfusion into non-declining fixed pressure",
-    "description": "Replicates the extraction characteristics of traditional E61-style Italian espresso machines.\n\nPreinfuses at 4ml/s, followed by a the main extraction at a fixed (non-declining) pressure as defined by the 'Pressure' variable"
+    "description": "Replicates the extraction characteristics of traditional E61-style Italian espresso machines.\n\nPreinfuses at 8ml/s, followed by a main extraction at a fixed (non-declining) pressure as defined by the 'Pressure' variable"
   },
   "temperature": 90.5,
   "final_weight": 36,
