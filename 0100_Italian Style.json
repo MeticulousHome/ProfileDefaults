@@ -1,41 +1,16 @@
 {
-  "name": "Italian Style",
   "id": "bb02c8ba-e633-49d9-bcab-08ab340e25d9",
+  "name": "Italian Style",
   "author": "meticulous",
-  "author_id": "d9123a0a-d3d7-40fd-a548-b81376e43f23",
-  "previous_authors": [
-    {
-      "name": "mimoja",
-      "author_id": "d9123a0a-d3d7-40fd-a548-b81376e43f23",
-      "profile_id": "0cdf18ca-d72e-4776-8e25-7b3279907dce"
-    }
-  ],
-  "temperature": 87,
-  "final_weight": 40,
-  "variables": [
-    {
-      "name": "Pressure Limit",
-      "key": "pressure_limit",
-      "type": "pressure",
-      "value": 9
-    },
-    {
-      "name": "Constant Flow",
-      "key": "flow_Constant Flow",
-      "type": "flow",
-      "value": 1.8
-    }
-  ],
-  "display": {
-    "description": "A fast filling profile that builds pressure and transitions to a constant flow until the target weight is reached. The benefit is that it retains puck resistance and once dialed in by grind to a peak pressure of 6-9 bar, will maintain the shot time even as the bean ages without adjusting grind size. Adjust the End Flow rate via the Dial to shorten or lengthen the shot time.",
-    "shortDescription": "Fast fill with flow profiling for best puck integrety"
-  },
-  "last_changed": 1753885761.6184704,
+  "isLast": true,
   "stages": [
     {
+      "key": "flow_1",
       "name": "Fill",
       "type": "power",
+      "limits": [],
       "dynamics": {
+        "over": "time",
         "points": [
           [
             0,
@@ -46,7 +21,6 @@
             100
           ]
         ],
-        "over": "time",
         "interpolation": "curve"
       },
       "exit_triggers": [
@@ -59,17 +33,23 @@
         {
           "type": "pressure",
           "value": 5,
-          "comparison": ">=",
-          "relative": false
+          "relative": false,
+          "comparison": ">="
         }
-      ],
-      "limits": [],
-      "key": "flow_1"
+      ]
     },
     {
+      "key": "flow_2",
       "name": "Constant Flow",
       "type": "flow",
+      "limits": [
+        {
+          "type": "pressure",
+          "value": "$pressure_limit"
+        }
+      ],
       "dynamics": {
+        "over": "time",
         "points": [
           [
             0,
@@ -80,7 +60,6 @@
             "$flow_Constant Flow"
           ]
         ],
-        "over": "time",
         "interpolation": "linear"
       },
       "exit_triggers": [
@@ -90,16 +69,37 @@
           "relative": true,
           "comparison": ">="
         }
-      ],
-      "limits": [
-        {
-          "type": "pressure",
-          "value": "$pressure_limit"
-        }
-      ],
-      "key": "flow_2"
+      ]
     }
   ],
-  "isLast": true,
-  "temporary": false
+  "display": {
+    "description": "A fast filling profile that builds pressure and transitions to a constant flow until the target weight is reached. The benefit is that it retains puck resistance and once dialed in by grind to a peak pressure of 6-9 bar, will maintain the shot time even as the bean ages without adjusting grind size. Adjust the End Flow rate via the Dial to shorten or lengthen the shot time.",
+    "shortDescription": "Fast fill with flow profiling for best puck integrety"
+  },
+  "author_id": "d9123a0a-d3d7-40fd-a548-b81376e43f23",
+  "temporary": false,
+  "variables": [
+    {
+      "key": "pressure_limit",
+      "name": "Pressure Limit",
+      "type": "pressure",
+      "value": 9
+    },
+    {
+      "key": "flow_Constant Flow",
+      "name": "Constant Flow",
+      "type": "flow",
+      "value": 1.8
+    }
+  ],
+  "temperature": 89,
+  "final_weight": 40,
+  "last_changed": 1753885761.6184704,
+  "previous_authors": [
+    {
+      "name": "mimoja",
+      "author_id": "d9123a0a-d3d7-40fd-a548-b81376e43f23",
+      "profile_id": "0cdf18ca-d72e-4776-8e25-7b3279907dce"
+    }
+  ]
 }
