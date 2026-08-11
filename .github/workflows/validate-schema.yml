@@ -22,7 +22,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install check-jsonschema
 
+      - name: Check canonical profile comparisons
+        run: python .github/scripts/check_profile_comparisons.py
+
       - name: Validate JSON files
         run: |
-          SCHEMA_URL="https://raw.githubusercontent.com/MeticulousHome/espresso-profile-schema/main/schema.json"
+          SCHEMA_URL="https://raw.githubusercontent.com/MeticulousHome/espresso-profile-schema/c019a8d64feac3ae02e66484867a10ca27c66330/schema.json"
           find . -name '*.json' -exec bash -c 'echo "Validating $1" && check-jsonschema --schemafile "$0" "$1"' "$SCHEMA_URL" {} \;
