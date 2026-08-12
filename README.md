@@ -26,7 +26,13 @@ and activates only after the measured value rises above it. In particular, a
 
 Legacy `>=` comparisons and omitted comparisons were migrated to `>`. This is a
 small exact-boundary behavior change; it does not change `<=` comparisons or any
-other profile field. Run the corpus check before submitting profile changes:
+other profile field. The migration is idempotent and can be safely repeated:
+
+```sh
+python .github/scripts/check_profile_comparisons.py --write
+```
+
+Run the read-only corpus check before submitting profile changes:
 
 ```sh
 python .github/scripts/check_profile_comparisons.py
